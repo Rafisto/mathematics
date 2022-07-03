@@ -28,6 +28,13 @@ class Complex(object):
             elif im < 0:
                 return -1 * math.pi / 2
 
+    @staticmethod
+    def complexModulus(re, im):
+        """
+        The following function calculates |z| with given real and imaginary part of a complex number z
+        """
+        return math.sqrt(re**2+im**2)
+
     def __init__(self, real=None, imaginary=None, radius=None, angle=None):
         """
         Define a complex number through its base form
@@ -87,11 +94,7 @@ class Complex(object):
         Very sophisticated and unintentionally prolonged function to compensate float approximation error
         Probably wrong as well
         """
-        float_error = 100
-        if round(self.real, 1) % 1 == 0:
-            self.real = int(round(self.real))
-        if round(self.imaginary, 1) % 1 == 0:
-            self.imaginary = int(round(self.imaginary))
+        float_error = 2
         if round(self.real, float_error) == 0:
             return f"{round(self.imaginary, float_error)}i"
         if round(self.imaginary, float_error) == 0:
@@ -99,6 +102,6 @@ class Complex(object):
         return f"{round(self.real, float_error)}+{round(self.imaginary, float_error)}i"
 
 
-assert str(Complex(1, 2) - 1) == '2i'
-assert str(Complex(1, 1) * Complex(1, 1)) == '2i'
-assert str(Complex(1, 1) / Complex(1, 1)) == '1'
+# print(Complex(1, 2) - 1)
+# print(Complex(1, 1) * Complex(1, 1))
+# print(Complex(1, 1) / Complex(1, 1))
