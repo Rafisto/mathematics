@@ -21,7 +21,7 @@ class DeMoivreEquation(object):
         """
         Check whether given parameters are correct by type
         """
-        assert type(self.n) == float or type(self.n) == int
+        assert type(self.n) == int
         assert type(self.k) == Complex
 
     def Solve(self):
